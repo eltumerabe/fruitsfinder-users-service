@@ -16,5 +16,23 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
+    <distributionManagement>
+        <repository>
+            <id>fruitsfinder.internal</id>
+            <name>Internal Release Repository</name>
+            <url>http://localhost:3030/repository/internal/</url>
+        </repository>
+        <snapshotRepository>
+            <id>fruitsfinder.snapshots</id>
+            <name>Internal Snapshot Repository</name>
+            <url>http://localhost:3030/repository/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

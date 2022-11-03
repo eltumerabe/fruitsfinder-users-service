@@ -8,8 +8,7 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
-import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
-import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
+import static org.springframework.web.reactive.function.server.RequestPredicates.*;
 
 @Configuration
 public class UserServiceRouter {
@@ -17,7 +16,7 @@ public class UserServiceRouter {
     @Bean
     public RouterFunction<ServerResponse> getEmployeeByIdRoute(final UserServiceHandler userServiceHandler) {
         return RouterFunctions
-                .route(GET("/hello").and(accept(MediaType.TEXT_PLAIN)),userServiceHandler::welcome);
+                .route(POST("/users").and(accept(MediaType.APPLICATION_JSON)),userServiceHandler::createUser);
     }
 
 
